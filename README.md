@@ -1,2 +1,5 @@
-# goMapMarshall
-Go Marshall and Unmarshall example of maps
+# goMapMarshal
+Go Marshal and Unmarshal example of maps
+
+
+
