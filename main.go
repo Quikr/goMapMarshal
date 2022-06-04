@@ -7,10 +7,11 @@ import (
 )
 
 /*
-   Scenario: when ClientMetadata of a json payload on the server is a key value scenario.
-    metadata is returned as "client_metadata" : {}{}    // Unknown struct
+   Scenario: the client_metadata of the json payload requested is a key value.
+   metadata is returned as "client_metadata" : {}{}    // Unknown struct
 
-   This example is about how to read and write out a map[string]string in a streamlined manner.
+   This example is about how to read and write out a map[string]string using types and methods
+   to do the work.
 
 */
 
@@ -27,8 +28,7 @@ var jsoncontent = `
 
 type Client struct {
 	Tenant string `json:"tenant"`
-
-	// ClientMetadata struct {}{}  this what client struct is but it's a key map
+	// ClientMetadata struct {}{}  this what client struct is, though it's a key map
 	CM *CMeta `json:"client_metadata"`
 }
 
@@ -79,8 +79,7 @@ func main() {
 	json.Unmarshal([]byte(jsoncontent), Client)
 	fmt.Println(fmt.Sprintf("%+v", Client))
 
-	// Write the content out does it match?
+	// Write the content out, does it match?
 	Data, _ := json.Marshal(Client)
-
 	fmt.Println(fmt.Sprintf("Ends up with - %s", Data))
 }
